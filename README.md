@@ -14,7 +14,6 @@
 - [Uso](#uso)
 - [Arquitectura](#arquitectura)
 - [Configuración](#configuración)
-- [Pruebas](#pruebas)
 - [Versiones](#versiones)
 - [Desarrollo](#desarrollo)
 - [Roadmap](#roadmap)
@@ -136,7 +135,7 @@ SmartWallet está estructurado en capas lógicas que permiten una mejor organiza
 
 ### 📁 Estructura del Proyecto
 
-text
+```text
 SmartWallet/
 ├── Presentacion/       # Formularios Windows Forms
 ├── LogicaNegocio/      # Reglas, validaciones, cálculos
@@ -144,7 +143,7 @@ SmartWallet/
 ├── Entidades/          # Clases de modelo (Ingreso, Egreso, Usuario)
 ├── Reportes/           # Visualización y exportación de reportes
 ├── Tests/              # Pruebas unitarias e integración
-
+```
 
 ---
 
