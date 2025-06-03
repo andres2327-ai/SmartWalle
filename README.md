@@ -48,12 +48,6 @@ El sistema busca empoderar a los usuarios para administrar su dinero de forma cl
 - Clasificación personalizada de transacciones (alimentación, transporte, salud, etc.).
 - Balance automático por día, mes o categoría.
 
-### 📊 Reportes y Gráficos
-
-- Resumen visual del estado financiero mensual.
-- Gráficas comparativas de ingresos vs egresos.
-- Exportación de reportes (PDF o Excel, si aplica).
-
 ### 🔐 Seguridad
 
 - Inicio de sesión con credenciales personales.
@@ -114,18 +108,6 @@ SmartWallet cuenta con una interfaz de usuario amigable que permite a cualquier 
 - Egresos: compras, pagos de servicios, transporte, salud, etc.
 - Cada movimiento se asocia a una categoría y una fecha específica.
 
-#### 📅 Seguimiento Mensual
-
-- Visualización de ingresos y egresos por mes.
-- Total acumulado, balance positivo o negativo.
-- Historial de transacciones detallado.
-
-#### 📊 Panel de Reportes
-
-- Gráficas de pastel y barras con desglose por categoría.
-- Comparación de meses anteriores.
-- Análisis porcentual de gastos más frecuentes.
-
 ---
 
 ## 🏗 Arquitectura
@@ -185,40 +167,6 @@ xml
 
 
 > ⚠ Protege tu archivo App.config y evita subir credenciales al repositorio.
-
----
-
-## 🧪 Pruebas
-
-### ✅ Pruebas Unitarias
-
-csharp
-[Test]
-public void CalcularBalance_DeberiaRetornarCorrecto()
-{
-    var logica = new FinanzasService();
-    var balance = logica.CalcularBalance(1000, 300);
-    Assert.AreEqual(700, balance);
-}
-
-
-### 🔄 Pruebas de Integración
-
-csharp
-[Test]
-public void GuardarMovimiento_EnBaseDeDatos_DeberiaInsertarRegistro()
-{
-    var movimiento = new Movimiento { Tipo = "Ingreso", Monto = 500 };
-    var servicio = new MovimientoService();
-    Assert.IsTrue(servicio.Guardar(movimiento));
-}
-
-
-### ▶ Ejecutar
-
-bash
-dotnet test
-
 
 ---
 
