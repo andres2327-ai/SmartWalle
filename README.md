@@ -158,12 +158,13 @@ string connectionString = "Server=localhost;Database=SmartWalletDB;User Id=admin
 ### 📄 App.config
 
 xml
+```text
 <connectionStrings>
   <add name="SmartWalletDB"
        connectionString="Server=localhost;Database=SmartWalletDB;User Id=admin;Password=123456;"
        providerName="System.Data.SqlClient" />
 </connectionStrings>
-
+```
 
 > ⚠ Protege tu archivo App.config y evita subir credenciales al repositorio.
 
@@ -196,12 +197,13 @@ xml
 
 ### Guía de Estilo
 
+```text
 csharp
 public class MovimientoService { }
 private string _descripcion;
 
 /// <summary>Calcula el balance</summary>
-
+```
 
 ### Flujo de Trabajo
 
