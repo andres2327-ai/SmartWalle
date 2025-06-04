@@ -75,7 +75,7 @@ El sistema busca empoderar a los usuarios para administrar su dinero de forma cl
 1. Clona el repositorio desde GitHub:
 
 bash
-[git clone https://github.com/tuusuario/SmartWallet.git](https://github.com/andres2327-ai/SmartWalle.git)
+https://github.com/andres2327-ai/SmartWalle.git
 
 
 2. Abre la solución SmartWallet.sln en Visual Studio.
