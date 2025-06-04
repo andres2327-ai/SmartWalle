@@ -63,9 +63,9 @@ namespace DALL
                 {
                     string operacion = esSuma ? "+" : "-";
                     string query = $@"
-                UPDATE USUARIOS
-                SET presupuesto = presupuesto {operacion} @monto
-                WHERE Id = @idUsuario";
+                    UPDATE USUARIOS
+                    SET presupuesto = presupuesto {operacion} @monto
+                    WHERE Id = @idUsuario";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {

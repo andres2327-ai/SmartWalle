@@ -52,14 +52,13 @@ namespace GUI
 
         private void btnrestar_Click(object sender, EventArgs e)
         {
-            // Obtener el monto desde el TextBox txtmonto
             string input = txtmonto.Text;
             if (decimal.TryParse(input, out decimal monto) && monto > 0)
             {
                 int idUsuario = Usuariocache.idusuario;
                 usuarioService.ActualizarPresupuesto(idUsuario, monto, false);
 
-                // Actualizar el presupuesto mostrado
+
                 Usuariocache.presupuesto -= monto;
                 lblpresupuesto.Text = string.Format("{0:C}", Usuariocache.presupuesto);
 
@@ -73,14 +72,14 @@ namespace GUI
 
         private void btnsumar_Click(object sender, EventArgs e)
         {
-            // Obtener el monto desde el TextBox txtmonto
+
             string input = txtmonto.Text;
             if (decimal.TryParse(input, out decimal monto) && monto > 0)
             {
                 int idUsuario = Usuariocache.idusuario;
                 usuarioService.ActualizarPresupuesto(idUsuario, monto, true);
 
-                // Actualizar el presupuesto mostrado
+
                 Usuariocache.presupuesto += monto;
                 lblpresupuesto.Text = string.Format("{0:C}", Usuariocache.presupuesto);
 

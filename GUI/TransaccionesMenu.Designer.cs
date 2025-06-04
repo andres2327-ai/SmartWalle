@@ -50,12 +50,12 @@
             // 
             this.dtgvTransacciones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(244)))), ((int)(((byte)(250)))));
             this.dtgvTransacciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTransacciones.Location = new System.Drawing.Point(253, 128);
-            this.dtgvTransacciones.Margin = new System.Windows.Forms.Padding(2);
+            this.dtgvTransacciones.Location = new System.Drawing.Point(337, 158);
+            this.dtgvTransacciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvTransacciones.Name = "dtgvTransacciones";
             this.dtgvTransacciones.RowHeadersWidth = 51;
             this.dtgvTransacciones.RowTemplate.Height = 24;
-            this.dtgvTransacciones.Size = new System.Drawing.Size(706, 230);
+            this.dtgvTransacciones.Size = new System.Drawing.Size(941, 283);
             this.dtgvTransacciones.TabIndex = 1;
             this.dtgvTransacciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTransacciones_CellContentClick);
             // 
@@ -70,15 +70,16 @@
             this.panel1.Controls.Add(this.txtmonto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(203, 517);
+            this.panel1.Size = new System.Drawing.Size(271, 636);
             this.panel1.TabIndex = 11;
             // 
             // cbCategoria
             // 
             this.cbCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(244)))), ((int)(((byte)(250)))));
             this.cbCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbCategoria.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Items.AddRange(new object[] {
             "Alimentacion",
@@ -89,9 +90,10 @@
             "Servicios",
             "Ocio",
             "Otros"});
-            this.cbCategoria.Location = new System.Drawing.Point(1, 260);
+            this.cbCategoria.Location = new System.Drawing.Point(1, 320);
+            this.cbCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(202, 26);
+            this.cbCategoria.Size = new System.Drawing.Size(268, 32);
             this.cbCategoria.TabIndex = 21;
             this.cbCategoria.Text = "Categoria";
             // 
@@ -99,9 +101,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 9);
+            this.label5.Location = new System.Drawing.Point(68, 11);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 25);
+            this.label5.Size = new System.Drawing.Size(110, 31);
             this.label5.TabIndex = 7;
             this.label5.Text = "Agregar";
             // 
@@ -109,14 +112,15 @@
             // 
             this.cbTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(244)))), ((int)(((byte)(250)))));
             this.cbTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbTipo.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Items.AddRange(new object[] {
             "Ingreso",
-            "Gasto"});
-            this.cbTipo.Location = new System.Drawing.Point(0, 184);
+            "egreso"});
+            this.cbTipo.Location = new System.Drawing.Point(0, 226);
+            this.cbTipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(203, 26);
+            this.cbTipo.Size = new System.Drawing.Size(269, 32);
             this.cbTipo.TabIndex = 20;
             this.cbTipo.Text = "Tipo";
             // 
@@ -126,10 +130,10 @@
             this.txtdescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtdescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtdescripcion.ForeColor = System.Drawing.Color.DimGray;
-            this.txtdescripcion.Location = new System.Drawing.Point(1, 78);
-            this.txtdescripcion.Margin = new System.Windows.Forms.Padding(2);
+            this.txtdescripcion.Location = new System.Drawing.Point(1, 96);
+            this.txtdescripcion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdescripcion.Name = "txtdescripcion";
-            this.txtdescripcion.Size = new System.Drawing.Size(202, 17);
+            this.txtdescripcion.Size = new System.Drawing.Size(269, 22);
             this.txtdescripcion.TabIndex = 5;
             this.txtdescripcion.Text = "DESCRIPCION";
             this.txtdescripcion.Enter += new System.EventHandler(this.txtdescripcion_Enter);
@@ -142,10 +146,10 @@
             this.btntransaccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btntransaccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntransaccion.ForeColor = System.Drawing.Color.White;
-            this.btntransaccion.Location = new System.Drawing.Point(0, 465);
-            this.btntransaccion.Margin = new System.Windows.Forms.Padding(2);
+            this.btntransaccion.Location = new System.Drawing.Point(0, 572);
+            this.btntransaccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btntransaccion.Name = "btntransaccion";
-            this.btntransaccion.Size = new System.Drawing.Size(203, 52);
+            this.btntransaccion.Size = new System.Drawing.Size(271, 64);
             this.btntransaccion.TabIndex = 9;
             this.btntransaccion.Text = "Agregar";
             this.btntransaccion.UseVisualStyleBackColor = false;
@@ -157,10 +161,10 @@
             this.txtmonto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtmonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtmonto.ForeColor = System.Drawing.Color.DimGray;
-            this.txtmonto.Location = new System.Drawing.Point(1, 138);
-            this.txtmonto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtmonto.Location = new System.Drawing.Point(1, 170);
+            this.txtmonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtmonto.Name = "txtmonto";
-            this.txtmonto.Size = new System.Drawing.Size(202, 17);
+            this.txtmonto.Size = new System.Drawing.Size(269, 22);
             this.txtmonto.TabIndex = 6;
             this.txtmonto.Text = "MONTO";
             this.txtmonto.Enter += new System.EventHandler(this.txtmonto_Enter);
@@ -173,10 +177,10 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(244)))), ((int)(((byte)(250)))));
-            this.btnModificar.Location = new System.Drawing.Point(466, 413);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Location = new System.Drawing.Point(621, 508);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(110, 32);
+            this.btnModificar.Size = new System.Drawing.Size(147, 39);
             this.btnModificar.TabIndex = 15;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -189,9 +193,10 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(244)))), ((int)(((byte)(250)))));
-            this.btnEliminar.Location = new System.Drawing.Point(605, 413);
+            this.btnEliminar.Location = new System.Drawing.Point(807, 508);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(99, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(132, 39);
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -201,18 +206,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(504, 26);
+            this.label1.Location = new System.Drawing.Point(672, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 25);
+            this.label1.Size = new System.Drawing.Size(192, 31);
             this.label1.TabIndex = 16;
             this.label1.Text = "Transacciones";
             // 
             // btnatras
             // 
             this.btnatras.Image = ((System.Drawing.Image)(resources.GetObject("btnatras.Image")));
-            this.btnatras.Location = new System.Drawing.Point(209, 3);
+            this.btnatras.Location = new System.Drawing.Point(279, 4);
+            this.btnatras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnatras.Name = "btnatras";
-            this.btnatras.Size = new System.Drawing.Size(23, 31);
+            this.btnatras.Size = new System.Drawing.Size(31, 38);
             this.btnatras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnatras.TabIndex = 19;
             this.btnatras.TabStop = false;
@@ -220,17 +227,17 @@
             // 
             // TransaccionesMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(244)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(970, 517);
+            this.ClientSize = new System.Drawing.Size(1293, 636);
             this.Controls.Add(this.btnatras);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvTransacciones);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TransaccionesMenu";
             this.Text = "Transacciones";
             this.Load += new System.EventHandler(this.Transacciones_Load);

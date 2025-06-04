@@ -15,17 +15,15 @@ namespace proyecto
     public partial class FormGestAhorrar : Form
     {
         private readonly MetaAhorroService _metaAhorroService;
-        private string _username; // Debes obtener este valor al crear el formulario
+        private string _username; 
         public FormGestAhorrar()
         {
             InitializeComponent();
             _metaAhorroService = new MetaAhorroService();
-            _username = Usuariocache.username; // Asignar el nombre de usuario desde el caché
+            _username = Usuariocache.username; 
             CargarMetas();
             this.dgvmetas.CellClick += new DataGridViewCellEventHandler(this.dgvmetas_CellClick);
             
-
-             // Asignar el nombre de la primera meta al texto de la etiqueta
         }
 
         private void CargarMetas()
@@ -35,7 +33,7 @@ namespace proyecto
                 var metas = _metaAhorroService.consultarTabla(_username);
                 dgvmetas.DataSource = metas;
 
-                // Opcional: Configurar columnas del DataGridView si es necesario
+                
                 if (dgvmetas.Columns.Count > 0)
                 {
                     dgvmetas.Columns[0].HeaderText = "Nombre";
@@ -57,11 +55,10 @@ namespace proyecto
             {
                 var row = dgvmetas.Rows[e.RowIndex];
                 _MetaSeleccionadaId = Convert.ToInt32(row.Cells["Id"].Value);
-                // Opcional: puedes mostrar los datos en los controles si lo deseas
+                
             }
         }
 
-        // Variables para almacenar la meta seleccionada
 
         private int? _MetaSeleccionadaId = null;
 
@@ -84,7 +81,6 @@ namespace proyecto
                     return;
                 }
 
-                // Obtener la meta actual para conservar los demás datos
                 var metaActual = _metaAhorroService.consultarTabla(usuario)
                     .FirstOrDefault(m => m.Id == _MetaSeleccionadaId.Value);
                 lblNomMeta.Text = metaActual.NombreMeta;
@@ -95,12 +91,11 @@ namespace proyecto
                     return;
                 }
 
-                // Asignar el nombre de la meta al texto de la etiqueta
+               
                 
 
                 metaActual.MontoActual = montoAhorro;
 
-                // Actualizar la meta
                 _metaAhorroService.GestionarMetaAhorro(metaActual, usuario);
 
                 MessageBox.Show("Monto de ahorro actualizado correctamente.");
@@ -140,20 +135,12 @@ namespace proyecto
             this.Close();
         }
 
-        // Recuerda asociar el evento dgvmetas_CellClick al DataGridView en el diseñador o en el constructor:
+        
     }
 }
 
 
-// Pseudocódigo detallado:
-// 1. Al hacer clic en un registro del DataGridView (dgvmetas), guardar el id de la meta seleccionada (_MetaSeleccionadaId).
-// 2. Al presionar btnGuardar, validar que _MetaSeleccionadaId no sea null.
-// 3. Tomar el valor de txtAhorro, validarlo y actualizar el campo monto_actual de la meta seleccionada.
-// 4. Llamar a MetaAhorroService.GestionarMetaAhorro con el objeto MetaAhorro actualizado.
-// 5. Refrescar la grilla y limpiar la selección.
 
-            // Agregar el evento para seleccionar la meta en el DataGridView:
-        
 
         
 

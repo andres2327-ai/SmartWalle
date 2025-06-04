@@ -40,8 +40,8 @@ namespace GUI
                     Nombre = nombre,
                     Username = username,
                     Password = password,
-                    Presupuesto = presupuesto, // Inicialmente 0, se puede cambiar según la lógica de negocio
-                    FechaRegistro = fecha// Fecha actual
+                    Presupuesto = presupuesto, 
+                    FechaRegistro = fecha
                 };
                 
                 if (password == passwordConfi)
@@ -67,12 +67,12 @@ namespace GUI
         {
             if (RegistrarUsuario() == true)
             {
-                this.Hide(); // Cierra el formulario después de registrar
+                this.Hide(); 
                 login loginForm = new login();
                 loginForm.Show();
             }
             
-             // Muestra el formulario de login después de registrar
+             
         }
 
         private void txttelefono_Enter(object sender, EventArgs e)
@@ -135,6 +135,7 @@ namespace GUI
             {
                 txtpasw.Text = "";
                 txtpasw.ForeColor = Color.Black;
+                txtpasw.UseSystemPasswordChar = true;
             }
         }
 
@@ -144,6 +145,7 @@ namespace GUI
             {
                 txtpasw.Text = "Contraseña";
                 txtpasw.ForeColor = Color.DimGray;
+                txtpasw.UseSystemPasswordChar = false;
             }
         }
 
@@ -153,6 +155,7 @@ namespace GUI
             {
                 txtpassw2.Text = "";
                 txtpassw2.ForeColor = Color.Black;
+                txtpassw2.UseSystemPasswordChar = true;
             }
         }
 
@@ -162,6 +165,7 @@ namespace GUI
             {
                 txtpassw2.Text = "Confirmar Contraseña";
                 txtpassw2.ForeColor = Color.DimGray;
+                txtpassw2.UseSystemPasswordChar = false;
             }
         }
 

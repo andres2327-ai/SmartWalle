@@ -64,7 +64,7 @@ namespace proyecto
             {
                 var deudas = _deudasService.consultarTabla(_username);
                 dgvDeudas.DataSource = deudas;
-                //ConfigurarDataGridView();
+              
             }
             catch (Exception ex)
             {
@@ -192,7 +192,6 @@ namespace proyecto
             }
         }
 
-        // Reemplaza el método dgvDeudas_CellContentClick por este:
         private void dgvDeudas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -211,14 +210,12 @@ namespace proyecto
             }
         }
 
-        // Paso 2: Declarar variable de clase para guardar el Id de la transacción seleccionada
         private int? _deudaseleccionadaid = null;
 
-        // Paso 3: Modificar el método btnModificar_Click para actualizar la transacción
 
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
-            string username = _username; // Asegúrate de que el username esté disponible aquí
+            string username = _username; 
             if (_deudaseleccionadaid.HasValue)
             {
                 if (ValidarCampos())
@@ -229,7 +226,7 @@ namespace proyecto
                         Descripcion = txtDescripcion.Text,
                         Monto = decimal.Parse(txtMonto.Text),
                         Estado = cmbEstado.Text,
-                        FechaCreacion = DateTime.Now // O la fecha que corresponda
+                        FechaCreacion = DateTime.Now 
                     };
 
                     _deudasService.ModificarDeuda(deudaModificada, username);
@@ -247,16 +244,6 @@ namespace proyecto
             }
         }
 
-// Pseudocódigo detallado:
-// 1. Al hacer clic en una fila del DataGridView (dgvDeudas), obtener el objeto Deudas de la fila seleccionada.
-// 2. Cargar los valores de ese objeto en los controles txtDescripcion, txtMonto y cmbEstado.
-// 3. Guardar el Id de la deuda seleccionada en una variable de clase (_deudaseleccionadaid).
-// 4. Al hacer clic en btnModificar, si _deudaseleccionadaid tiene valor, validar los campos.
-// 5. Si la validación es correcta, crear un objeto Deudas con los datos de los controles y el Id guardado.
-// 6. Llamar a _deudasService.ModificarDeuda con el objeto y el username.
-// 7. Limpiar los campos y recargar la tabla después de modificar.
-
-            // Implementación:
 
 
         private void dgvDeudas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -309,14 +296,7 @@ namespace proyecto
             }
         }
 
-// Asegúrate de asociar el evento en el constructor o en el Load del formulario:
-// dgvDeudas.CellClick += dgvDeudas_CellClick;
-        
 
-        // 4. Modificar LimpiarCampos para resetear _deudaSeleccionadaId y botones:
-        
-
-        // 5. Asociar el evento SelectionChanged en el constructor o en FormDeudas_Load:
         private void FormDeudas_Load(object sender, EventArgs e)
         {
             btnGuardar.Click += btnGuardar_Click;

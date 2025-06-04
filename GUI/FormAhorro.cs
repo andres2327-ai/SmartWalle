@@ -15,7 +15,7 @@ namespace proyecto
     public partial class FormAhorro : Form
     {
         private readonly MetaAhorroService _metaAhorroService;
-        private string _username; // Debes obtener este valor al crear el formulario
+        private string _username; 
 
         public FormAhorro(string username)
         {
@@ -30,7 +30,7 @@ namespace proyecto
 
         private void ConfigurarPlaceholders()
         {
-            // Manejar eventos para los placeholders
+            
             txtCantidad.Enter += (s, e) => {
                 if (txtCantidad.Text == "Cantidad") txtCantidad.Text = "";
             };
@@ -54,14 +54,7 @@ namespace proyecto
                 var metas = _metaAhorroService.consultarTabla(_username);
                 dgvMetas.DataSource = metas;
 
-                // Opcional: Configurar columnas del DataGridView si es necesario
-                //if (dgvMetas.Columns.Count > 0)
-                //{
-                //    dgvMetas.Columns[0].HeaderText = "Nombre";
-                //    dgvMetas.Columns[1].HeaderText = "Monto Objetivo";
-                //    dgvMetas.Columns[2].HeaderText = "Monto Actual";
-                //    dgvMetas.Columns[3].HeaderText = "Fecha Objetivo";
-                //}
+               
             
             
         }
@@ -80,7 +73,7 @@ namespace proyecto
 
         private void btnGestionar_Click(object sender, EventArgs e)
         {
-            // Implementar lógica para gestionar (depositar/retirar)
+
             if (dgvMetas.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Por favor selecciona una meta para gestionar", "Advertencia",
@@ -88,7 +81,6 @@ namespace proyecto
                 return;
             }
 
-            // Aquí podrías abrir otro formulario para gestionar la meta seleccionada
         }
 
       
@@ -115,7 +107,6 @@ namespace proyecto
         {
             try
             {
-                // Validar campos
                 if (txtNombreMe.Text == "Nombre de tu Meta" || string.IsNullOrWhiteSpace(txtNombreMe.Text))
                 {
                     MessageBox.Show("Por favor ingresa un nombre para la meta", "Advertencia",
@@ -130,7 +121,6 @@ namespace proyecto
                     return;
                 }
 
-                // Crear objeto MetaAhorro
                 var meta = new MetaAhorro
                 {
                     MontoActual = 0,
@@ -139,16 +129,14 @@ namespace proyecto
                     Completada = false,
                     PorcentajeCompletado = 0,
 
-                    // Iniciar en 0
+                    
                 };
 
-                // Registrar la meta
                 _metaAhorroService.RegistrarMetaAhorro(meta, _username);
 
                 MessageBox.Show("Meta creada exitosamente", "Éxito",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Limpiar y actualizar
                 txtNombreMe.Text = "Nombre de tu Meta";
                 txtCantidad.Text = "Cantidad";
                 CargarMetas();

@@ -7,7 +7,7 @@ namespace proyecto
 {
     public partial class FormInicio : Form
     {
-        // Importaciones para mover el formulario
+        
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
 

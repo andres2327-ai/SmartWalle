@@ -68,7 +68,7 @@ namespace GUI
             {
                 txtpassword.Text = "";
                 txtpassword.ForeColor = Color.Black;
-                txtpassword.UseSystemPasswordChar = true; // Mostrar como contraseña
+                txtpassword.UseSystemPasswordChar = true; 
             }
         }
 
@@ -78,7 +78,7 @@ namespace GUI
             {
                 txtpassword.Text = "CONTRASEÑA";
                 txtpassword.ForeColor = Color.DimGray;
-                txtpassword.UseSystemPasswordChar = false; // Mostrar como texto normal
+                txtpassword.UseSystemPasswordChar = false; 
             }
         }
 
@@ -99,30 +99,6 @@ namespace GUI
             inicioForm.Show();
         }
 
-        //public string InicioDesesion()
-        //{
-        //    try
-        //    {
-
-
-        //        bool UsuarioValido = _usuarioservice.Login(usuario, contrasena);
-        //        if (UsuarioValido != true)
-        //        {
-        //            menu formMenu = new menu();
-        //            formMenu.Show();
-        //            this.Hide();
-        //            return usuario;
-        //        }
-        //        else
-        //        {
-        //            return "Usuario o contraseña incorrectos";
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
+        
     }
 }

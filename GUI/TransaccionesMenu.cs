@@ -42,14 +42,14 @@ namespace GUI
         {
             try
             {
-                // Obtener datos del formulario
+                
                 string usuario = Usuariocache.username;
                 string descripcion = txtdescripcion.Text.Trim();
                 decimal monto = decimal.Parse(txtmonto.Text.Trim());
                 string tipo = cbTipo.Text.Trim();
                 string categoria = cbCategoria.Text.Trim();
 
-                // Validaciones básicas
+                
                 if (string.IsNullOrEmpty(descripcion))
                 {
                     MessageBox.Show("Por favor ingrese una descripción");
@@ -62,25 +62,13 @@ namespace GUI
                     return;
                 }
 
-                // Obtener el usuario para consultar su presupuesto
+                
                 int idUsuario = _usuarioService.obteneridUsuario(usuario);
                 Usuario usuarioActual = new Usuario();
-                // Aquí podrías tener un método para obtener el usuario completo, pero si no, solo consulta el presupuesto
-                // Suponiendo que tienes un método para obtener el usuario por username
-                // Si no, deberías implementarlo en UsuarioRepository
-                // Por ahora, solo obtendremos el presupuesto
-                // (Puedes ajustar esto si tienes un método para obtener el usuario completo)
+                
                 decimal presupuestoActual = Usuariocache.presupuesto;
                 try
                 {
-                    // Si tienes un método para obtener el usuario completo, úsalo aquí
-                    // usuarioActual = _usuarioService.ObtenerUsuarioPorUsername(usuario);
-                    // presupuestoActual = usuarioActual.Presupuesto;
-
-                    // Si no, puedes obtener el presupuesto de otra forma
-                    // Por ejemplo, podrías tener un método en UsuarioRepository para obtener el presupuesto
-                    // Aquí se asume que tienes acceso al presupuesto de alguna manera
-                    // Si tienes el usuario en caché, úsalo
                     presupuestoActual = Usuariocache.presupuesto;
                 }
                 catch
@@ -89,7 +77,7 @@ namespace GUI
                     return;
                 }
 
-                // Si la transacción es de tipo "Gasto" o similar, verifica el presupuesto
+
                 if (tipo.Equals("egreso", StringComparison.OrdinalIgnoreCase) )
                 {
                     if (monto > presupuestoActual)
@@ -108,11 +96,10 @@ namespace GUI
                             Fecha = DateTime.Now
                         };
 
-                        // Registrar la transacción
                         transaccionService.RegistrarTransaccion(nuevaTransaccion, usuario);
-                        _usuarioService.ActualizarPresupuesto(idUsuario, monto, false); // Restar del presupuesto
+                        _usuarioService.ActualizarPresupuesto(idUsuario, monto, false); 
 
-                        // Mensaje de éxito
+ 
                         MessageBox.Show("Transacción registrada correctamente");
                         actualizarGrilla();
                     }
@@ -135,11 +122,6 @@ namespace GUI
                         actualizarGrilla();
                     }
                 }
-
-                    // Crear nueva transacción
-                    
-
-                // Opcional: Limpiar los campos después de guardar
 
             }
             catch (FormatException)
@@ -166,45 +148,11 @@ namespace GUI
 
             var listaTransaccion = transaccionService.consultarTabla(username);
             dtgvTransacciones.DataSource = listaTransaccion;
-            // Aquí puedes implementar la lógica para actualizar la grilla de transacciones
-            // Por ejemplo, podrías cargar las transacciones desde la base de datos y mostrarlas en un DataGridView
-            // dataGridView1.DataSource = ObtenerTransacciones(); // Método ficticio
+            
         }
 
         private void dtgvTransacciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //// Verifica que no se haya hecho clic en el encabezado y que haya una fila seleccionada
-            //if (e.RowIndex >= 0 && dtgvTransacciones.Rows[e.RowIndex].DataBoundItem is Transacciones transaccionSeleccionada)
-            //{
-            //    var confirmResult = MessageBox.Show(
-            //        "¿Está seguro que desea eliminar esta transacción?",
-            //        "Confirmar eliminación",
-            //        MessageBoxButtons.YesNo,
-            //        MessageBoxIcon.Question);
-
-            //    if (confirmResult == DialogResult.Yes)
-            //    {
-            //        try
-            //        {
-            //            // Suponiendo que tienes un método EliminarTransaccion en tu servicio
-            //            // y que el Id de la transacción no es nulo
-            //            if (transaccionSeleccionada.Id.HasValue)
-            //            {
-            //                transaccionService.EliminarTransaccionPorId(transaccionSeleccionada.Id.Value);
-            //                MessageBox.Show("Transacción eliminada correctamente.");
-            //                actualizarGrilla();
-            //            }
-            //            else
-            //            {
-            //                MessageBox.Show("No se pudo identificar la transacción a eliminar.");
-            //            }
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show($"Error al eliminar la transacción: {ex.Message}");
-            //        }
-            //    }
-            //}
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -244,7 +192,7 @@ namespace GUI
             }
         }
 
-        // Paso 1: Al hacer clic en una fila del DataGridView, cargar los datos en los TextBox
+
         private void dtgvTransacciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dtgvTransacciones.Rows[e.RowIndex].DataBoundItem is Transacciones transaccionSeleccionada)
@@ -253,15 +201,15 @@ namespace GUI
                 txtmonto.Text = transaccionSeleccionada.Monto.ToString("F2");
                 cbTipo.Text = transaccionSeleccionada.Tipo;
                 cbCategoria.Text = transaccionSeleccionada.Categoria;
-                // Puedes guardar el Id en una variable de clase para usarlo al modificar
+
                 _transaccionSeleccionadaId = transaccionSeleccionada.Id;
             }
         }
 
-        // Paso 2: Declarar variable de clase para guardar el Id de la transacción seleccionada
+
         private int? _transaccionSeleccionadaId = null;
 
-        // Paso 3: Modificar el método btnModificar_Click para actualizar la transacción
+   
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (_transaccionSeleccionadaId == null)
@@ -290,7 +238,7 @@ namespace GUI
                     return;
                 }
 
-                // Crear objeto transacción con los nuevos datos
+
                 Transacciones transaccionModificada = new Transacciones
                 {
                     Id = _transaccionSeleccionadaId,
@@ -298,10 +246,10 @@ namespace GUI
                     Monto = monto,
                     Tipo = tipo,
                     Categoria = categoria,
-                    Fecha = DateTime.Now // O puedes mantener la fecha original si lo prefieres
+                    Fecha = DateTime.Now 
                 };
 
-                // Llamar al método de actualización (debes implementarlo en tu servicio y repositorio)
+
                 transaccionService.ModificarTransaccion(transaccionModificada, usuario);
 
                 MessageBox.Show("Transacción modificada correctamente.");
