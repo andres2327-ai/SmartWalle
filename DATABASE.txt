@@ -1,0 +1,59 @@
+-- Eliminación de tablas (en orden correcto por dependencias)
+DROP TABLE IF EXISTS transacciones;
+DROP TABLE IF EXISTS metas_ahorro;
+DROP TABLE IF EXISTS deudas;
+DROP TABLE IF EXISTS usuarios;
+
+-- Creación de tablas
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    telefono VARCHAR(15) NOT NULL CHECK (LEN(telefono) = 10 AND telefono NOT LIKE '%[^0-9]%'),
+    nombre VARCHAR(100) NOT NULL,
+    fecha_registro DATETIME DEFAULT GETDATE(),
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    presupuesto DECIMAL(12,2) NOT NULL,
+    CONSTRAINT username_min_length CHECK (LEN(username) >= 3)
+);
+
+CREATE TABLE transacciones (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    usuario_id INT NOT NULL,
+    monto DECIMAL(12, 2) NOT NULL CHECK (monto > 0),
+    tipo VARCHAR(20) NOT NULL CHECK (tipo IN ('ingreso', 'egreso', 'transferencia')),
+    categoria VARCHAR(20) NOT NULL CHECK (categoria IN ('servicio', 'transporte', 'alimentación', 'juguetes', 'tecnología', 'ocio', 'otros')),
+    descripcion VARCHAR(255),
+    fecha DATE NOT NULL DEFAULT CAST(GETDATE() AS DATE),
+    CONSTRAINT fk_transacciones_usuarios FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE metas_ahorro (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    usuario_id INT NOT NULL,
+    monto_objetivo DECIMAL(12, 2) NOT NULL CHECK (monto_objetivo > 0),
+    monto_actual DECIMAL(12, 2) DEFAULT 0 CHECK (monto_actual >= 0),
+    nombre VARCHAR(100) NOT NULL,
+    completada BIT DEFAULT 0,
+    porcentaje_completado AS (
+        CASE WHEN monto_objetivo = 0 THEN 0 
+             ELSE (monto_actual * 100 / monto_objetivo)
+        END
+    ) PERSISTED,
+    CONSTRAINT fk_metas_usuarios FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE deudas (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    usuario_id INT NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    monto DECIMAL(12, 2) NOT NULL CHECK (monto > 0),
+    estado VARCHAR(20) DEFAULT 'pendiente' CHECK (estado IN ('pendiente', 'pagada', 'cobrada')),
+    fecha_creacion DATE DEFAULT CAST(GETDATE() AS DATE),
+    CONSTRAINT fk_deudas_usuarios FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- Índices para mejorar rendimiento
+CREATE INDEX idx_transacciones_usuario ON transacciones(usuario_id);
+CREATE INDEX idx_transacciones_fecha ON transacciones(fecha);
+CREATE INDEX idx_metas_ahorro_usuario ON metas_ahorro(usuario_id);
+CREATE INDEX idx_deudas_usuario ON deudas(usuario_id);
